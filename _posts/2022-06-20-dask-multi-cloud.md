@@ -853,7 +853,7 @@ The cluster is run up with a single command. It takes a while though
 import subprocess
 
 scheduler_process = subprocess.Popen([
-        '../dask_multicloud/start-scheduler.sh', 
+        '../dask_multicloud/start-cluster.sh', 
         f"rcar@{ecmwf_host}",
         f"rcar@{eumetsat_host}"
     ])
