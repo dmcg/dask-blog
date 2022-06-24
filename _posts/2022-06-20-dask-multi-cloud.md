@@ -1165,7 +1165,7 @@ Of course the cluster would have to be provisioned with compute resources in the
 
 ## More Information
 
-This notebook, and the code behind it, are published in a [GitHub repository](https://https://github.com/dmcg/dask-multicloud-poc). 
+This notebook, and the code behind it, are published in a [GitHub repository](https://github.com/dmcg/dask-multicloud-poc). 
 
 For details of the prototype implementation, and ideas for enhancements, see
-[dask-multi-cloud-details.ipynb](https://github.com/MetOffice/dask-multicloud-poc/blob/main/demo/dask-multi-cloud-details.ipynb).
+[dask-multi-cloud-details.ipynb](https://github.com/dmcg/dask-multicloud-poc/blob/main/demo/dask-multi-cloud-details.ipynb).
