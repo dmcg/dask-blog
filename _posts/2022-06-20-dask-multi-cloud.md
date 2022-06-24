@@ -35,7 +35,7 @@ Image(filename="images/datacentres.png") # this because GitHub doesn't render ma
 
 
     
-![png](images/dask-multi-cloud_1_0.png)
+![png](/images/dask-multi-cloud_1_0.png)
     
 
 
@@ -115,7 +115,7 @@ Image(filename="images/datacentres-data.png")
 
 
     
-![png](images/dask-multi-cloud_11_0.png)
+![png](/images/dask-multi-cloud_11_0.png)
     
 
 
@@ -931,7 +931,7 @@ Image(filename="images/datacentres-dask.png")
 
 
     
-![png](images/dask-multi-cloud_32_0.png)
+![png](/images/dask-multi-cloud_32_0.png)
     
 
 
@@ -1128,7 +1128,7 @@ with propagate_pools():
 
 
     
-![png](images/dask-multi-cloud_62_1.png)
+![png](/images/dask-multi-cloud_62_1.png)
     
 
 
