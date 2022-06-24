@@ -1163,11 +1163,9 @@ with propagate_pools():
 Of course the cluster would have to be provisioned with compute resources in the appropriate data centres, although with some work this could be made dynamic as part of the catalog code.
 
 
-## Next Steps
+## More Information
 
-For details of the prototype implementation, and ideas for enhancements, see [dask-multi-cloud-details.ipynb](./dask-multi-cloud-details.ipynb).
+This notebook, and the code behind it, are published in a [GitHub repository](https://https://github.com/dmcg/dask-multicloud-poc). 
 
-
-```python
-
-```
+For details of the prototype implementation, and ideas for enhancements, see
+[dask-multi-cloud-details.ipynb](https://github.com/MetOffice/dask-multicloud-poc/blob/main/demo/dask-multi-cloud-details.ipynb).
