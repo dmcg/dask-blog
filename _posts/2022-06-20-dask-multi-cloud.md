@@ -149,6 +149,17 @@ and because that directory is mounted here over NFS, so can this computer
     0 directories, 1 file
 
 
+This is a big file
+
+
+```python
+!ls -lh /data/ecmwf
+```
+
+    total 2.8G
+    -rw-rw-r-- 1 ec2-user ec2-user 2.8G Mar 25 13:09 000490262cdd067721a34112963bcaa2b44860ab.nc
+
+
 On EUMETSAT we have `observations.nc`
 
 
@@ -166,13 +177,10 @@ similarly visible on this computer
 
 
 ```python
-!tree /data/eumetsat/ad-hoc
+!ls -lh /data/eumetsat/ad-hoc/observations.nc
 ```
 
-    /data/eumetsat/ad-hoc
-    └── observations.nc
-    
-    0 directories, 1 file
+    -rw-rw-r-- 1 613600004 613600004 4.8M May 20 10:57 /data/eumetsat/ad-hoc/observations.nc
 
 
 ECMWF data is not visible in the EUMETSAT data centre, and vice versa.
@@ -572,14 +580,14 @@ Attributes:
     source:                       Met Office Unified Model
     title:                        MOGREPS-G Model Forecast on Global 20 km St...
     um_version:                   11.5
-    Conventions:                  CF-1.7</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-bc5449f0-90af-424e-9f0b-ad7b4a4cff2a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-bc5449f0-90af-424e-9f0b-ad7b4a4cff2a' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>realization</span>: 18</li><li><span class='xr-has-index'>height</span>: 33</li><li><span class='xr-has-index'>latitude</span>: 960</li><li><span class='xr-has-index'>longitude</span>: 1280</li><li><span>bnds</span>: 2</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-4e207e47-315a-4558-be61-213bf59d8304' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4e207e47-315a-4558-be61-213bf59d8304' class='xr-section-summary' >Coordinates: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>realization</span></div><div class='xr-var-dims'>(realization)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 18 19 20 21 22 ... 30 31 32 33 34</div><input id='attrs-f467d78b-95be-4c55-9e92-6d4899a192ed' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f467d78b-95be-4c55-9e92-6d4899a192ed' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c16b4df1-fcc4-42f4-a489-d36547174cb9' class='xr-var-data-in' type='checkbox'><label for='data-c16b4df1-fcc4-42f4-a489-d36547174cb9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>standard_name :</span></dt><dd>realization</dd></dl></div><div class='xr-var-data'><pre>array([ 0, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
-      dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>height</span></div><div class='xr-var-dims'>(height)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>5.0 10.0 20.0 ... 5.5e+03 6e+03</div><input id='attrs-ad48af67-f146-409b-af6d-dbda8aa9234e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ad48af67-f146-409b-af6d-dbda8aa9234e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a0250811-cf45-4916-a28c-c4ea418c64cd' class='xr-var-data-in' type='checkbox'><label for='data-a0250811-cf45-4916-a28c-c4ea418c64cd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>standard_name :</span></dt><dd>height</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([5.00e+00, 1.00e+01, 2.00e+01, 3.00e+01, 5.00e+01, 7.50e+01, 1.00e+02,
+    Conventions:                  CF-1.7</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-7315ddc5-ed0c-48c3-87a5-b85f32410f6c' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7315ddc5-ed0c-48c3-87a5-b85f32410f6c' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>realization</span>: 18</li><li><span class='xr-has-index'>height</span>: 33</li><li><span class='xr-has-index'>latitude</span>: 960</li><li><span class='xr-has-index'>longitude</span>: 1280</li><li><span>bnds</span>: 2</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-be4be477-6c6e-4c9c-a57e-ed94d9b78361' class='xr-section-summary-in' type='checkbox'  checked><label for='section-be4be477-6c6e-4c9c-a57e-ed94d9b78361' class='xr-section-summary' >Coordinates: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>realization</span></div><div class='xr-var-dims'>(realization)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 18 19 20 21 22 ... 30 31 32 33 34</div><input id='attrs-62e5bd32-1b6f-4582-b8d7-7d4924766c0a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-62e5bd32-1b6f-4582-b8d7-7d4924766c0a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4f4d118d-9ec4-4c49-9c30-aaf460a347e1' class='xr-var-data-in' type='checkbox'><label for='data-4f4d118d-9ec4-4c49-9c30-aaf460a347e1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>standard_name :</span></dt><dd>realization</dd></dl></div><div class='xr-var-data'><pre>array([ 0, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
+      dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>height</span></div><div class='xr-var-dims'>(height)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>5.0 10.0 20.0 ... 5.5e+03 6e+03</div><input id='attrs-65f18df2-ba93-447b-a2de-65c115f116da' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-65f18df2-ba93-447b-a2de-65c115f116da' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fcb85a4c-0368-4945-be6f-f5c04c9220dc' class='xr-var-data-in' type='checkbox'><label for='data-fcb85a4c-0368-4945-be6f-f5c04c9220dc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>standard_name :</span></dt><dd>height</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([5.00e+00, 1.00e+01, 2.00e+01, 3.00e+01, 5.00e+01, 7.50e+01, 1.00e+02,
        1.50e+02, 2.00e+02, 2.50e+02, 3.00e+02, 4.00e+02, 5.00e+02, 6.00e+02,
        7.00e+02, 8.00e+02, 1.00e+03, 1.25e+03, 1.50e+03, 1.75e+03, 2.00e+03,
        2.25e+03, 2.50e+03, 2.75e+03, 3.00e+03, 3.25e+03, 3.50e+03, 3.75e+03,
-       4.00e+03, 4.50e+03, 5.00e+03, 5.50e+03, 6.00e+03], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-89.91 -89.72 ... 89.72 89.91</div><input id='attrs-bad4c20c-56e5-44a8-b568-d65cc2455d04' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bad4c20c-56e5-44a8-b568-d65cc2455d04' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a0ddf18b-51a1-4c71-b633-f3f72fe442ee' class='xr-var-data-in' type='checkbox'><label for='data-a0ddf18b-51a1-4c71-b633-f3f72fe442ee' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>latitude_bnds</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>standard_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([-89.90625, -89.71875, -89.53125, ...,  89.53125,  89.71875,  89.90625],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-179.9 -179.6 ... 179.6 179.9</div><input id='attrs-9fc5cef3-d210-4699-b38c-21e0b3a2338c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9fc5cef3-d210-4699-b38c-21e0b3a2338c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-891400b1-59f7-4fb0-8342-15533870b184' class='xr-var-data-in' type='checkbox'><label for='data-891400b1-59f7-4fb0-8342-15533870b184' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>longitude_bnds</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([-179.85938, -179.57812, -179.29688, ...,  179.29688,  179.57812,
-        179.85938], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>forecast_period</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>timedelta64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-097bdf81-3e25-4f4b-a430-7b516dd41589' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-097bdf81-3e25-4f4b-a430-7b516dd41589' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7b303ac7-0735-4c09-be12-22ad4181f35e' class='xr-var-data-in' type='checkbox'><label for='data-7b303ac7-0735-4c09-be12-22ad4181f35e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>forecast_period</dd></dl></div><div class='xr-var-data'><pre>array(151200000000000, dtype=&#x27;timedelta64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>forecast_reference_time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-64375de8-d63f-4cb3-bbbf-19f6ec5f7810' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-64375de8-d63f-4cb3-bbbf-19f6ec5f7810' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6a1c76f6-7f32-446d-b74c-92b6bd899bfb' class='xr-var-data-in' type='checkbox'><label for='data-6a1c76f6-7f32-446d-b74c-92b6bd899bfb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>forecast_reference_time</dd></dl></div><div class='xr-var-data'><pre>array(&#x27;2021-11-07T06:00:00.000000000&#x27;, dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0ed67550-bfe1-4076-89d1-25eacdff7b5c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0ed67550-bfe1-4076-89d1-25eacdff7b5c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7461847b-4b9b-4933-bfde-d2d93072907b' class='xr-var-data-in' type='checkbox'><label for='data-7461847b-4b9b-4933-bfde-d2d93072907b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array(&#x27;2021-11-09T00:00:00.000000000&#x27;, dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-fa78e40d-9f37-43f6-b3cd-6dda9b583822' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fa78e40d-9f37-43f6-b3cd-6dda9b583822' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>air_pressure</span></div><div class='xr-var-dims'>(realization, height, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(18, 33, 192, 160), meta=np.ndarray&gt;</div><input id='attrs-2841fe2e-3f47-40dd-a5b2-d1e39f6352e6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2841fe2e-3f47-40dd-a5b2-d1e39f6352e6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c2ee6615-74ea-4c7f-b968-7b01e175de9d' class='xr-var-data-in' type='checkbox'><label for='data-c2ee6615-74ea-4c7f-b968-7b01e175de9d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>units :</span></dt><dd>Pa</dd><dt><span>grid_mapping :</span></dt><dd>latitude_longitude</dd></dl></div><div class='xr-var-data'><table>
+       4.00e+03, 4.50e+03, 5.00e+03, 5.50e+03, 6.00e+03], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-89.91 -89.72 ... 89.72 89.91</div><input id='attrs-d885186f-bb1e-41d6-8e54-d6614acdb3a1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d885186f-bb1e-41d6-8e54-d6614acdb3a1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bf998e85-24cd-4b87-a15e-74db8feaed0e' class='xr-var-data-in' type='checkbox'><label for='data-bf998e85-24cd-4b87-a15e-74db8feaed0e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>latitude_bnds</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>standard_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([-89.90625, -89.71875, -89.53125, ...,  89.53125,  89.71875,  89.90625],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-179.9 -179.6 ... 179.6 179.9</div><input id='attrs-a2d47e60-ef3a-4363-aba5-28dc1a87d75c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a2d47e60-ef3a-4363-aba5-28dc1a87d75c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b286b9e4-2858-46dd-bfea-ec9735bd247f' class='xr-var-data-in' type='checkbox'><label for='data-b286b9e4-2858-46dd-bfea-ec9735bd247f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>longitude_bnds</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([-179.85938, -179.57812, -179.29688, ...,  179.29688,  179.57812,
+        179.85938], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>forecast_period</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>timedelta64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f5115bfa-789d-4bf7-b6df-44c0cce0fccb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f5115bfa-789d-4bf7-b6df-44c0cce0fccb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-79fe7672-5aba-42d4-b57e-b7866df9325a' class='xr-var-data-in' type='checkbox'><label for='data-79fe7672-5aba-42d4-b57e-b7866df9325a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>forecast_period</dd></dl></div><div class='xr-var-data'><pre>array(151200000000000, dtype=&#x27;timedelta64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>forecast_reference_time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-e16ffdcb-d304-4647-af5d-e18042371265' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e16ffdcb-d304-4647-af5d-e18042371265' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a8ef5e26-a677-48af-ae7f-fd0133791eba' class='xr-var-data-in' type='checkbox'><label for='data-a8ef5e26-a677-48af-ae7f-fd0133791eba' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>forecast_reference_time</dd></dl></div><div class='xr-var-data'><pre>array(&#x27;2021-11-07T06:00:00.000000000&#x27;, dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-be739ef0-fbf8-4544-96ae-8b133c93e572' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-be739ef0-fbf8-4544-96ae-8b133c93e572' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f3657616-5d98-4d6c-be61-40508161c4de' class='xr-var-data-in' type='checkbox'><label for='data-f3657616-5d98-4d6c-be61-40508161c4de' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array(&#x27;2021-11-09T00:00:00.000000000&#x27;, dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8d0c8485-e563-4e89-8115-a684a5bb27c9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8d0c8485-e563-4e89-8115-a684a5bb27c9' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>air_pressure</span></div><div class='xr-var-dims'>(realization, height, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(18, 33, 192, 160), meta=np.ndarray&gt;</div><input id='attrs-c69f4511-6a4f-4719-87c2-b1d59f4d44b3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c69f4511-6a4f-4719-87c2-b1d59f4d44b3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f8977552-0a98-4fe8-8229-3f347e293840' class='xr-var-data-in' type='checkbox'><label for='data-f8977552-0a98-4fe8-8229-3f347e293840' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>units :</span></dt><dd>Pa</dd><dt><span>grid_mapping :</span></dt><dd>latitude_longitude</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table>
@@ -697,7 +705,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude_longitude</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-72108f39-8c1f-4307-b12d-bb65d4050b9b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-72108f39-8c1f-4307-b12d-bb65d4050b9b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7a575ffc-1140-4eec-8c1c-c83b59ba7a66' class='xr-var-data-in' type='checkbox'><label for='data-7a575ffc-1140-4eec-8c1c-c83b59ba7a66' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>earth_radius :</span></dt><dd>6371229.0</dd></dl></div><div class='xr-var-data'><pre>array(-2147483647, dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude_bnds</span></div><div class='xr-var-dims'>(latitude, bnds)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(960, 2), meta=np.ndarray&gt;</div><input id='attrs-9d990590-82ce-4e87-9361-ad78fe3fb359' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9d990590-82ce-4e87-9361-ad78fe3fb359' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4d4432d5-5261-43f7-b040-b56fb0e36609' class='xr-var-data-in' type='checkbox'><label for='data-4d4432d5-5261-43f7-b040-b56fb0e36609' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude_longitude</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-3f87c973-a583-46d7-93ea-7875bafb4da2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3f87c973-a583-46d7-93ea-7875bafb4da2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1aee046f-bfe0-4d73-bf78-2aaef489788d' class='xr-var-data-in' type='checkbox'><label for='data-1aee046f-bfe0-4d73-bf78-2aaef489788d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>latitude_longitude</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>earth_radius :</span></dt><dd>6371229.0</dd></dl></div><div class='xr-var-data'><pre>array(-2147483647, dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude_bnds</span></div><div class='xr-var-dims'>(latitude, bnds)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(960, 2), meta=np.ndarray&gt;</div><input id='attrs-16076922-e017-4a45-8f4c-bfe9426a1a62' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-16076922-e017-4a45-8f4c-bfe9426a1a62' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d075b5f1-6f4e-4f03-8fa8-e45b047b7827' class='xr-var-data-in' type='checkbox'><label for='data-d075b5f1-6f4e-4f03-8fa8-e45b047b7827' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table>
@@ -754,7 +762,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>longitude_bnds</span></div><div class='xr-var-dims'>(longitude, bnds)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1280, 2), meta=np.ndarray&gt;</div><input id='attrs-4ed079f1-2982-46c9-b6bb-c4cd14003c45' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4ed079f1-2982-46c9-b6bb-c4cd14003c45' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8a086866-f347-442c-8273-d5b42fd49a2b' class='xr-var-data-in' type='checkbox'><label for='data-8a086866-f347-442c-8273-d5b42fd49a2b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>longitude_bnds</span></div><div class='xr-var-dims'>(longitude, bnds)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1280, 2), meta=np.ndarray&gt;</div><input id='attrs-65520dd7-ceef-4ef7-ad82-04c57ff95da3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-65520dd7-ceef-4ef7-ad82-04c57ff95da3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-46dea395-0552-458e-bc3f-8cf3289266ee' class='xr-var-data-in' type='checkbox'><label for='data-46dea395-0552-458e-bc3f-8cf3289266ee' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table>
@@ -811,13 +819,13 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-fb51b9bd-076c-4e4b-87fe-94dff191209e' class='xr-section-summary-in' type='checkbox'  ><label for='section-fb51b9bd-076c-4e4b-87fe-94dff191209e' class='xr-section-summary' >Attributes: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>history :</span></dt><dd>2021-11-07T10:27:38Z: StaGE Decoupler</dd><dt><span>institution :</span></dt><dd>Met Office</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>mosg__forecast_run_duration :</span></dt><dd>PT198H</dd><dt><span>mosg__grid_domain :</span></dt><dd>global</dd><dt><span>mosg__grid_type :</span></dt><dd>standard</dd><dt><span>mosg__grid_version :</span></dt><dd>1.6.0</dd><dt><span>mosg__model_configuration :</span></dt><dd>gl_ens</dd><dt><span>source :</span></dt><dd>Met Office Unified Model</dd><dt><span>title :</span></dt><dd>MOGREPS-G Model Forecast on Global 20 km Standard Grid</dd><dt><span>um_version :</span></dt><dd>11.5</dd><dt><span>Conventions :</span></dt><dd>CF-1.7</dd></dl></div></li></ul></div></div>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-64719674-8f31-4c88-85a1-bcff12e3ba08' class='xr-section-summary-in' type='checkbox'  ><label for='section-64719674-8f31-4c88-85a1-bcff12e3ba08' class='xr-section-summary' >Attributes: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>history :</span></dt><dd>2021-11-07T10:27:38Z: StaGE Decoupler</dd><dt><span>institution :</span></dt><dd>Met Office</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>mosg__forecast_run_duration :</span></dt><dd>PT198H</dd><dt><span>mosg__grid_domain :</span></dt><dd>global</dd><dt><span>mosg__grid_type :</span></dt><dd>standard</dd><dt><span>mosg__grid_version :</span></dt><dd>1.6.0</dd><dt><span>mosg__model_configuration :</span></dt><dd>gl_ens</dd><dt><span>source :</span></dt><dd>Met Office Unified Model</dd><dt><span>title :</span></dt><dd>MOGREPS-G Model Forecast on Global 20 km Standard Grid</dd><dt><span>um_version :</span></dt><dd>11.5</dd><dt><span>Conventions :</span></dt><dd>CF-1.7</dd></dl></div></li></ul></div></div>
 
 
 
 Dask code running on this machine has read the metadata for the file via NFS. 
 
-Likewise we can see the observations, so we can perform a calculation locally. Here we average the predictions over the realisations and then compare them with the observations at a particular height. (This is a deliberately inefficient calculation, as we could average at only the required height, but this is pedagogical.)
+Likewise we can see the observations, so we can perform a calculation locally. Here we average the predictions over the realisations and then compare them with the observations at a particular height. (This is a deliberately inefficient calculation, as we could average at only the required height, but you get the point.)
 
 
 ```python
@@ -834,11 +842,13 @@ def scope():
 #scope()    
 ```
 
-    CPU times: user 7 µs, sys: 1 µs, total: 8 µs
-    Wall time: 11.7 µs
+    CPU times: user 10 µs, sys: 2 µs, total: 12 µs
+    Wall time: 13.8 µs
 
 
-When we uncomment `scope()` and actually run this, it takes some 18 minutes to complete! Accessing the data over NFS between data centres (we run this notebook in  AWS) is just too slow.
+When we uncomment `scope()` and actually run this, it takes over 14 minutes to complete! Accessing the data over NFS between data centres (we run this notebook in  AWS) is just too slow.
+
+In fact just copying the data files onto the computer running this notebook takes the same sort of time. At least 2.8 GiB + 4.8 MiB of data must pass from the data centres to this machine to perform the calculation.
 
 Instead we should obviously run the Dask tasks where the data is. We can do that on a Dask cluster.
 
@@ -851,7 +861,7 @@ The cluster is run up with a single command. It takes a while though
 import subprocess
 
 scheduler_process = subprocess.Popen([
-        '../dask_multicloud/start-cluster.sh', 
+        '../dask_multicloud/dask-boot.sh', 
         f"rcar@{ecmwf_host}",
         f"rcar@{eumetsat_host}"
     ])
@@ -863,44 +873,36 @@ scheduler_process = subprocess.Popen([
     [#] ip link set mtu 1420 up dev dasklocal
     [#] ip -6 route add fda5:c0ff:eeee:2::/64 dev dasklocal
     [#] ip -6 route add fda5:c0ff:eeee:1::/64 dev dasklocal
-    2022-06-21 13:56:19,720 - distributed.scheduler - INFO - -----------------------------------------------
-    2022-06-21 13:56:20,930 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
-    2022-06-21 13:56:20,980 - distributed.scheduler - INFO - -----------------------------------------------
-    2022-06-21 13:56:20,982 - distributed.scheduler - INFO - Clear task state
-    2022-06-21 13:56:20,982 - distributed.scheduler - INFO -   Scheduler at:     tcp://172.17.0.2:8786
-    2022-06-21 13:56:20,983 - distributed.scheduler - INFO -   dashboard at:                     :8787
-    2022-06-21 13:56:57,120 - distributed.comm.tcp - INFO - Connection from tcp://[fda5:c0ff:eeee:1::11]:45682 closed before handshake completed
-    2022-06-21 13:56:57,120 - distributed.comm.tcp - INFO - Connection from tcp://[fda5:c0ff:eeee:1::11]:45680 closed before handshake completed
-    2022-06-21 13:56:57,120 - distributed.comm.tcp - INFO - Connection from tcp://[fda5:c0ff:eeee:1::11]:45686 closed before handshake completed
-    2022-06-21 13:56:57,120 - distributed.comm.tcp - INFO - Connection from tcp://[fda5:c0ff:eeee:1::11]:45684 closed before handshake completed
-    2022-06-21 13:56:58,646 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:1::11]:41105', name: ecmwf-1-3, status: undefined, memory: 0, processing: 0>
-    2022-06-21 13:56:58,652 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:1::11]:41105
-    2022-06-21 13:56:58,652 - distributed.core - INFO - Starting established connection
-    2022-06-21 13:56:58,655 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:1::11]:35691', name: ecmwf-1-1, status: undefined, memory: 0, processing: 0>
-    2022-06-21 13:56:58,656 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:1::11]:35691
-    2022-06-21 13:56:58,657 - distributed.core - INFO - Starting established connection
-    2022-06-21 13:56:58,659 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:1::11]:33535', name: ecmwf-1-2, status: undefined, memory: 0, processing: 0>
-    2022-06-21 13:56:58,659 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:1::11]:33535
-    2022-06-21 13:56:58,660 - distributed.core - INFO - Starting established connection
-    2022-06-21 13:56:58,660 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:1::11]:46195', name: ecmwf-1-0, status: undefined, memory: 0, processing: 0>
-    2022-06-21 13:56:58,661 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:1::11]:46195
-    2022-06-21 13:56:58,661 - distributed.core - INFO - Starting established connection
-    2022-06-21 13:57:02,321 - distributed.comm.tcp - INFO - Connection from tcp://[fda5:c0ff:eeee:2::11]:38446 closed before handshake completed
-    2022-06-21 13:57:02,322 - distributed.comm.tcp - INFO - Connection from tcp://[fda5:c0ff:eeee:2::11]:38450 closed before handshake completed
-    2022-06-21 13:57:02,322 - distributed.comm.tcp - INFO - Connection from tcp://[fda5:c0ff:eeee:2::11]:38448 closed before handshake completed
-    2022-06-21 13:57:02,322 - distributed.comm.tcp - INFO - Connection from tcp://[fda5:c0ff:eeee:2::11]:38452 closed before handshake completed
-    2022-06-21 13:57:02,366 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:2::11]:39763', name: eumetsat-2-0, status: undefined, memory: 0, processing: 0>
-    2022-06-21 13:57:02,367 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:2::11]:39763
-    2022-06-21 13:57:02,371 - distributed.core - INFO - Starting established connection
-    2022-06-21 13:57:02,371 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:2::11]:37067', name: eumetsat-2-2, status: undefined, memory: 0, processing: 0>
-    2022-06-21 13:57:02,372 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:2::11]:37067
-    2022-06-21 13:57:02,372 - distributed.core - INFO - Starting established connection
-    2022-06-21 13:57:02,376 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:2::11]:38063', name: eumetsat-2-1, status: undefined, memory: 0, processing: 0>
-    2022-06-21 13:57:02,378 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:2::11]:38063
-    2022-06-21 13:57:02,379 - distributed.core - INFO - Starting established connection
-    2022-06-21 13:57:02,381 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:2::11]:36731', name: eumetsat-2-3, status: undefined, memory: 0, processing: 0>
-    2022-06-21 13:57:02,382 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:2::11]:36731
-    2022-06-21 13:57:02,382 - distributed.core - INFO - Starting established connection
+    2022-06-29 14:46:57,237 - distributed.scheduler - INFO - -----------------------------------------------
+    2022-06-29 14:46:58,602 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+    2022-06-29 14:46:58,643 - distributed.scheduler - INFO - -----------------------------------------------
+    2022-06-29 14:46:58,644 - distributed.scheduler - INFO - Clear task state
+    2022-06-29 14:46:58,646 - distributed.scheduler - INFO -   Scheduler at:     tcp://172.17.0.2:8786
+    2022-06-29 14:46:58,646 - distributed.scheduler - INFO -   dashboard at:                     :8787
+    2022-06-29 14:47:16,104 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:1::11]:37977', name: ecmwf-1-2, status: undefined, memory: 0, processing: 0>
+    2022-06-29 14:47:16,107 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:1::11]:37977
+    2022-06-29 14:47:16,108 - distributed.core - INFO - Starting established connection
+    2022-06-29 14:47:16,108 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:1::11]:44575', name: ecmwf-1-3, status: undefined, memory: 0, processing: 0>
+    2022-06-29 14:47:16,109 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:1::11]:44575
+    2022-06-29 14:47:16,109 - distributed.core - INFO - Starting established connection
+    2022-06-29 14:47:16,113 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:1::11]:40121', name: ecmwf-1-1, status: undefined, memory: 0, processing: 0>
+    2022-06-29 14:47:16,114 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:1::11]:40121
+    2022-06-29 14:47:16,114 - distributed.core - INFO - Starting established connection
+    2022-06-29 14:47:16,119 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:1::11]:40989', name: ecmwf-1-0, status: undefined, memory: 0, processing: 0>
+    2022-06-29 14:47:16,121 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:1::11]:40989
+    2022-06-29 14:47:16,121 - distributed.core - INFO - Starting established connection
+    2022-06-29 14:47:23,342 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:2::11]:33423', name: eumetsat-2-0, status: undefined, memory: 0, processing: 0>
+    2022-06-29 14:47:23,343 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:2::11]:33423
+    2022-06-29 14:47:23,343 - distributed.core - INFO - Starting established connection
+    2022-06-29 14:47:23,346 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:2::11]:43953', name: eumetsat-2-1, status: undefined, memory: 0, processing: 0>
+    2022-06-29 14:47:23,348 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:2::11]:43953
+    2022-06-29 14:47:23,348 - distributed.core - INFO - Starting established connection
+    2022-06-29 14:47:23,350 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:2::11]:46089', name: eumetsat-2-3, status: undefined, memory: 0, processing: 0>
+    2022-06-29 14:47:23,352 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:2::11]:46089
+    2022-06-29 14:47:23,352 - distributed.core - INFO - Starting established connection
+    2022-06-29 14:47:23,357 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://[fda5:c0ff:eeee:2::11]:43727', name: eumetsat-2-2, status: undefined, memory: 0, processing: 0>
+    2022-06-29 14:47:23,358 - distributed.scheduler - INFO - Starting worker compute stream, tcp://[fda5:c0ff:eeee:2::11]:43727
+    2022-06-29 14:47:23,358 - distributed.core - INFO - Starting established connection
 
 
 We need to wait for 8 `distributed.core - INFO - Starting established connection` lines - one from each of 4 worker processes on each of 2 worker machines.
@@ -931,7 +933,7 @@ Image(filename="images/datacentres-dask.png")
 
 
     
-![png](/images/dask-multi-cloud_32_0.png)
+![png](/images/dask-multi-cloud_35_0.png)
     
 
 
@@ -951,16 +953,16 @@ The scheduler for the cluster is running in a Docker container on this machine a
 client = Client("localhost:8786")
 ```
 
-    2022-06-21 13:57:22,990 - distributed.scheduler - INFO - Receive client connection: Client-1307589d-f16a-11ec-a197-0acd18a5c05a
-    2022-06-21 13:57:22,992 - distributed.core - INFO - Starting established connection
+    2022-06-29 14:47:35,535 - distributed.scheduler - INFO - Receive client connection: Client-69f22f41-f7ba-11ec-a0a2-0acd18a5c05a
+    2022-06-29 14:47:35,536 - distributed.core - INFO - Starting established connection
     /home/ec2-user/miniconda3/envs/jupyter/lib/python3.10/site-packages/distributed/client.py:1287: VersionMismatchWarning: Mismatched versions found
     
     +---------+--------+-----------+---------+
     | Package | client | scheduler | workers |
     +---------+--------+-----------+---------+
-    | lz4     | 4.0.0  | 3.1.3     | 3.1.3   |
-    | msgpack | 1.0.3  | 1.0.2     | 1.0.2   |
-    | numpy   | 1.22.3 | 1.21.5    | 1.21.5  |
+    | msgpack | 1.0.4  | 1.0.3     | 1.0.3   |
+    | numpy   | 1.23.0 | 1.22.3    | 1.22.3  |
+    | pandas  | 1.4.3  | 1.4.2     | 1.4.2   |
     +---------+--------+-----------+---------+
     Notes: 
     -  msgpack: Variation is ok, as long as everything is above 0.6
@@ -1019,7 +1021,7 @@ str(excinfo.value)
 
 
 
-    "[Errno 2] No such file or directory: b'/data/ecmwf/000490262cdd067721a34112963bcaa2b44860ab.nc'"
+    "[Errno 2] No such file or directory: b'/data/eumetsat/ad-hoc/observations.nc'"
 
 
 
@@ -1034,7 +1036,7 @@ To do this, when we create the workers we mark them as having a `pool-ecmwf` or 
 
 ```python
 with (dask.annotate(resources={'pool-ecmwf': 1})):
-    predictions.isel(height=10).compute()
+    predictions.mean('realization').isel(height=10).compute()
 ```
 
 A [special Python context manager](https://github.com/gjoseph92/dask-worker-pools) can hide the nastiness, allowing us to run a calculation only where the data is available
@@ -1042,7 +1044,7 @@ A [special Python context manager](https://github.com/gjoseph92/dask-worker-pool
 
 ```python
 with pool('ecmwf'):    
-    predictions.isel(height=10).compute()
+    predictions.mean('realization').isel(height=10).compute()
 ```
 
 Better still, we can load the data inside the context manager block and it will carry the task annonation with it
@@ -1058,7 +1060,7 @@ Another context manager in the library, `propagate_pools`, ensures that this res
 
 ```python
 with propagate_pools():
-    predictions.isel(height=10).compute()
+    predictions.mean('realization').isel(height=10).compute()
 ```
 
 This allows us to mark data with its pool
@@ -1090,8 +1092,8 @@ with propagate_pools():
     diff.compute()
 ```
 
-    CPU times: user 135 ms, sys: 16.2 ms, total: 151 ms
-    Wall time: 16.6 s
+    CPU times: user 127 ms, sys: 6.34 ms, total: 133 ms
+    Wall time: 4.88 s
 
 
 Remember, our aim was to distribute a calculation across data centres, whilst preventing workers reading foreign bulk data.
@@ -1122,17 +1124,42 @@ with propagate_pools():
     plt.imshow(diff.to_array()[0,...,0], origin='lower')
 ```
 
-    CPU times: user 222 ms, sys: 24.3 ms, total: 247 ms
-    Wall time: 24.1 s
+    CPU times: user 234 ms, sys: 27.6 ms, total: 261 ms
+    Wall time: 6.04 s
 
 
 
     
-![png](/images/dask-multi-cloud_62_1.png)
+![png](/images/dask-multi-cloud_65_1.png)
     
 
 
-In terms of code, compared with the local version above, this has only added the use of `with` blocks to label data and manage execution, and executes some 40 times faster.
+In terms of code, compared with the local version above, this has only added the use of `with` blocks to label data and manage execution, and executes some 100 times faster.
+
+This is a best case, because in the demonstrator the files are actually hosted on the worker machines, so the speed difference between reading the files locally and reading them over NFS is maximized. Perhaps more persuasive is the measured volume of network traffic.
+
+| Method | Time Taken | Measured Network Traffic|
+| :-- | :-: | :-: |
+| Calculation over NFS | > 14 minutes | 2.8 GiB |
+| Distributed Calculation | ~ 10 seconds | 8 MiB |
+
+Apart from some control and status messages, only the data required to paint the picture is sent over the network to this computer.
+
+Looking at the task stream we see the ECMWF workers (on the bottom) doing the bulk of the reading and computation, with the red transfer tasks joining this with data on EUMETSAT.
+
+
+```python
+Image(filename="images/task-graph.png")
+```
+
+
+
+
+    
+![png](/images/dask-multi-cloud_67_0.png)
+    
+
+
 
 ## Catalogs
 
