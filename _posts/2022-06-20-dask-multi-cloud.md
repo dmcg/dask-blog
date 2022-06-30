@@ -1051,7 +1051,7 @@ with pool('ecmwf'):
     predictions.mean('realization').isel(height=10).compute()
 ```
 
-The `pool` context manager is a colloboration with the Dask developers, and is [published on GitHub](https://github.com/gjoseph92/dask-worker-pools). You can read more on the evolution of the concept on the [Dask Discourse](https://dask.discourse.group/t/understanding-work-stealing/335).
+The `pool` context manager is a collaboration with the Dask developers, and is [published on GitHub](https://github.com/gjoseph92/dask-worker-pools). You can read more on the evolution of the concept on the [Dask Discourse](https://dask.discourse.group/t/understanding-work-stealing/335).
 
 We can do better than annotating the computation tasks though. If we load the data inside the context manager block, the data loading tasks will carry the annotation with them
 
