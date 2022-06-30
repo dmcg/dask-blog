@@ -5,7 +5,11 @@ author: Duncan McGregor (Met Office), Mike Grant (EUMETSAT), Richard Care (Met O
 tags: [distributed, deployment]
 theme: twitter
 ---
-# Distributing a Dask Cluster Between Data Centres
+
+
+
+_This work is a joint venture between the [Met Office](https://www.metoffice.gov.uk) and the [European Weather Cloud](https://www.europeanweather.cloud/). Crown Copyright 2022._
+
 
 ## Summary
 
@@ -183,7 +187,7 @@ similarly visible on this computer
     -rw-rw-r-- 1 613600004 613600004 4.8M May 20 10:57 /data/eumetsat/ad-hoc/observations.nc
 
 
-ECMWF data is not visible in the EUMETSAT data centre, and vice versa.
+Crucially, ECMWF data is not visible in the EUMETSAT data centre, and vice versa.
 
 ## Our Calculation
 
@@ -1039,7 +1043,7 @@ with (dask.annotate(resources={'pool-ecmwf': 1})):
     predictions.mean('realization').isel(height=10).compute()
 ```
 
-A [special Python context manager](https://github.com/gjoseph92/dask-worker-pools) can hide the nastiness, allowing us to run a calculation only where the data is available
+We can hide that boilerplate inside a Python context manager - `pool` - and write
 
 
 ```python
@@ -1047,7 +1051,9 @@ with pool('ecmwf'):
     predictions.mean('realization').isel(height=10).compute()
 ```
 
-Better still, we can load the data inside the context manager block and it will carry the task annonation with it
+The `pool` context manager is a colloboration with the Dask developers, and is [published on GitHub](https://github.com/gjoseph92/dask-worker-pools). You can read more on the evolution of the concept on the [Dask Discourse](https://dask.discourse.group/t/understanding-work-stealing/335).
+
+We can do better than annotating the computation tasks though. If we load the data inside the context manager block, the data loading tasks will carry the annotation with them
 
 
 ```python
@@ -1055,7 +1061,7 @@ with pool('ecmwf'):
     predictions = xarray.open_dataset('/data/ecmwf/000490262cdd067721a34112963bcaa2b44860ab.nc').chunk('auto')
 ```
 
-Another context manager in the library, `propagate_pools`, ensures that this resource pinning is respected
+In this case we need another context manager in the library, `propagate_pools`, to ensure that the annotation is not lost when the task graph is processed and executed
 
 
 ```python
@@ -1063,7 +1069,7 @@ with propagate_pools():
     predictions.mean('realization').isel(height=10).compute()
 ```
 
-This allows us to mark data with its pool
+The two context managers allow us to annotate data with its pool, and hence where the loading tasks will run
 
 
 ```python
@@ -1098,11 +1104,11 @@ with propagate_pools():
 
 Remember, our aim was to distribute a calculation across data centres, whilst preventing workers reading foreign bulk data.
 
-Here, we know that data is only being read by workers in the appropriate location, because neither data centre can read the other's data. Once data is in memory, Dask prefers to schedule tasks on the workers that have it, so that the local workers will tend to perform follow-on calcuations.
+Here we know that data is only being read by workers in the appropriate location, because neither data centre can read the other's data. Once data is in memory, Dask prefers to schedule tasks on the workers that have it, so that the local workers will tend to perform follow-on calcuations, and data chunks will tend to stay in the data centre that they were read from.
 
-Ordinarily though, Dask would use idle workers to perform calculations even if they don't have the data. If allowed, this work stealing would result in unreduced data being moved between data centres, a potentially expensive operation, so the `propagate_pools` context manager also prevents work-stealing between workers in different pools.
+Ordinarily though, if workers are idle, Dask would use them to perform calculations even if they don't have the data. If allowed, this work stealing would result in data being moved between data centres unnecessarly, a potentially expensive operation. To prevent this, the `propagate_pools` context manager installs a scheduler optimisation that disallows work-stealing between workers in different pools.
 
-Once data loaded in one pool needs to be combined with data from another (the substraction in `averaged_predictions.isel(height=10) - observations` above) this is no longer classified as work stealing, and Dask will move data between data centres as required.
+Once data loaded in one pool needs to be combined with data from another (the substraction in `averaged_predictions.isel(height=10) - observations` above), this is no longer classified as work stealing, and Dask will move data between data centres as required.
 
 That calculation in one go looks like this
 
@@ -1196,3 +1202,15 @@ This notebook, and the code behind it, are published in a [GitHub repository](ht
 
 For details of the prototype implementation, and ideas for enhancements, see
 [dask-multi-cloud-details.ipynb](https://github.com/dmcg/dask-multicloud-poc/blob/main/demo/dask-multi-cloud-details.ipynb).
+
+## Acknowledgements
+
+Thank you to Armagan Karatosun (EUMETSAT) and Vasileios Baousis (ECMWF) for their help and support with the infrastructure to support this proof of concept.
+Gabe Joseph (Coiled) wrote the clever pool context managers, and Jacob Tomlinson (NVIDIA) reviewed this output.
+
+_This work is a joint venture between the [Met Office](https://www.metoffice.gov.uk) and the [European Weather Cloud](https://www.europeanweather.cloud/). Crown Copyright 2022._
+
+
+```python
+
+```
