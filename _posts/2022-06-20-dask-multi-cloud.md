@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Distributing a Dask Cluster Between Data Centres
+title: Data Proximate Computation on a Dask Cluster Distributed Between Data Centres
 author: Duncan McGregor (Met Office), Mike Grant (EUMETSAT), Richard Care (Met Office) 
 tags: [distributed, deployment]
 theme: twitter
@@ -8,8 +8,7 @@ theme: twitter
 
 
 
-_This work is a joint venture between the [Met Office](https://www.metoffice.gov.uk) and the [European Weather Cloud](https://www.europeanweather.cloud/). Crown Copyright 2022._
-
+_This work is a joint venture between the [Met Office](https://www.metoffice.gov.uk) and the [European Weather Cloud](https://www.europeanweather.cloud/), which is a partnership of [ECMWF](https://ecmwf.int) and [EUMETSAT](https://eumetsat.int/)._
 
 ## Summary
 
@@ -19,13 +18,13 @@ A novel (ab)use of Dask resources allows us to run data processing tasks on the 
 
 ## Introduction
 
-The UK Met Office has been carrying out a study into data-proximate computing, in collaboration with the European Weather Cloud. We identified Dask as a key technology, but whilst existing Dask techniques focus on parallel computation in a single data centre, we looked to extend this to computation across data centres. This way, when the data required is hosted in multiple locations, tasks can be run where the data is rather than copying it.
+The UK Met Office has been carrying out a study into data-proximate computing in collaboration with the European Weather Cloud. We identified Dask as a key technology, but whilst existing Dask techniques focus on parallel computation in a single data centre, we looked to extend this to computation across data centres. This way, when the data required is hosted in multiple locations, tasks can be run where the data is rather than copying it.
 
-Dask worker nodes freely exchange data chunks as coordinated by a scheduler. There is an assumption that they are all on the same network, which is not generally true across data centres, so a truly distributed approach has to solve this problem. In addition, it has to manage data transfer efficiently, because moving data chunks between data centres is much more costly than between workers in the same cloud.
+Dask worker nodes exchange data chunks over a network, coordinated by a scheduler. There is an assumption that all nodes are freely able to communicate, which is not generally true across data centres due to firewalls, NAT, etc, so a truly distributed approach has to solve this problem. In addition, it has to manage data transfer efficiently, because moving data chunks between data centres is much more costly than between workers in the same cloud.
 
-This notebook documents a running proof-of-concept that addresses these problems. It runs a computation in 3 locations.
+This notebook documents a running proof-of-concept that addresses these problems. It runs a computation in 3 locations:
 
-1. This computer, where the client and scheduler are running.
+1. This computer, where the client and scheduler are running.  This was run on AWS during development.
 2. The ECMWF data centre. This has compute resources, and hosts data containing *predictions*.
 3. The EUMETSAT data centre, with compute resources and data on *observations*
 
@@ -68,7 +67,7 @@ from tree import tree
 ipytest.autoconfig()
 ```
 
-In this case we are using a control plane IPv4 WireGuard network on 10.8.0.0/24 to set up the cluster. WireGuard is running on ECMWF and EUMETSAT, but we have to start it here
+In this case we are using a control plane IPv4 [WireGuard](https://www.wireguard.com/) network on 10.8.0.0/24 to set up the cluster - this is not a necessity, but simplifies this proof of concept. WireGuard peers are running on ECMWF and EUMETSAT machines already, but we have to start one here:
 
 
 ```python
@@ -97,7 +96,7 @@ eumetsat_host='10.8.0.2'
 
 ## Mount the Data
 
-This machine needs access to the data files over the network in order to read NetCDF metadata. The workers are sharing their data with NFS, so we mount them here (over the control plane network, but see Future Work below)
+This machine needs access to the data files over the network in order to read NetCDF metadata. The workers are sharing their data with NFS, so we mount them here. (In this proof of concept, the control plane network is used for NFS, but the data plane network could equally be used, or a more appropriate technology such as [zarr](https://zarr.readthedocs.io/en/stable/) accessing object storage.)
 
 
 ```bash
@@ -827,7 +826,7 @@ Attributes:
 
 
 
-Dask code running on this machine has read the metadata for the file via NFS. 
+Dask code running on this machine has read the metadata for the file via NFS, but has not yet read in the data arrays themselves. 
 
 Likewise we can see the observations, so we can perform a calculation locally. Here we average the predictions over the realisations and then compare them with the observations at a particular height. (This is a deliberately inefficient calculation, as we could average at only the required height, but you get the point.)
 
@@ -920,8 +919,8 @@ What has happened here is:
 
 Each data centre hosts a control process, accessible over the control plane network. On invocation:
 
-1. The control process creates a WireGuard network interface on the data plane network. This acts as a router between the data centres and the scheduler.
-2. It starts Docker containers on compute instances. These containers have their own WireGuard network interface on the data plane network.
+1. The control process creates a WireGuard network interface on the data plane network. This acts as a router between the workers inside the data centres and the scheduler.
+2. It starts Docker containers on compute instances. These containers have their own WireGuard network interface on the data plane network, routing via the control process instance.
 3. The Docker containers spawn (4) Dask worker processes, each of which connects via the data plane network back to the scheduler created at the beginning.
 
 The result is one container on this computer running the scheduler, talking to a container on each worker machine, over a throw-away data plane WireGuard IPv6 network which allows each of the (in this case 8) Dask worker processes to communicate with each other and the scheduler, even though they are partitioned over 3 data centres.
@@ -950,7 +949,7 @@ Key
 
 ## Connecting to the Cluster
 
-The scheduler for the cluster is running in a Docker container on this machine and is exposed on `localhost`, so we can create a client talking to it
+The scheduler for the cluster is now running in a Docker container on this machine and is exposed on `localhost`, so we can create a client talking to it
 
 
 ```python
@@ -1080,7 +1079,7 @@ with pool('eumetsat'):
     observations = xarray.open_dataset('/data/eumetsat/ad-hoc/observations.nc').chunk('auto')
 ```
 
-define some deferred calculations oblivious to its provenance
+define some deferred calculations oblivious to the data's provenance
 
 
 ```python
@@ -1198,7 +1197,7 @@ Of course the cluster would have to be provisioned with compute resources in the
 
 ## More Information
 
-This notebook, and the code behind it, are published in a [GitHub repository](https://github.com/dmcg/dask-multicloud-poc). 
+This [notebook](https://github.com/dmcg/dask-multicloud-poc/blob/main/demo/dask-multi-cloud.ipynb), and the code behind it, are published in a [GitHub repository](https://github.com/dmcg/dask-multicloud-poc). 
 
 For details of the prototype implementation, and ideas for enhancements, see
 [dask-multi-cloud-details.ipynb](https://github.com/dmcg/dask-multicloud-poc/blob/main/demo/dask-multi-cloud-details.ipynb).
@@ -1206,9 +1205,9 @@ For details of the prototype implementation, and ideas for enhancements, see
 ## Acknowledgements
 
 Thank you to Armagan Karatosun (EUMETSAT) and Vasileios Baousis (ECMWF) for their help and support with the infrastructure to support this proof of concept.
-Gabe Joseph (Coiled) wrote the clever pool context managers, and Jacob Tomlinson (NVIDIA) reviewed this output.
+Gabe Joseph (Coiled) wrote the clever pool context managers, and Jacob Tomlinson (NVIDIA) reviewed this document.
 
-_This work is a joint venture between the [Met Office](https://www.metoffice.gov.uk) and the [European Weather Cloud](https://www.europeanweather.cloud/). Crown Copyright 2022._
+_Crown Copyright 2022_
 
 
 ```python
